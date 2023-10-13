@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Dom</title>
+</head>
+
+<body style="background-color: black; color: white; ">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+
+
+
+</body>
+
+<script>
+    const addListItem = (title) => {
+        const newListItem = document.createElement('li');
+        newListItem.innerHTML = title;
+        document.querySelector('.language').appendChild(newListItem)
+
+    }
+
+    const addItemOptimized = (title) => {
+        const newListItem = document.createElement('li');
+        newListItem.appendChild(document.createTextNode(title));
+        document.querySelector('.language').appendChild(newListItem)
+
+    }
+
+    const updateNth = (lang, index) => {
+        // const secLang = document.querySelector(`li:nth-child(${index})`)
+        // const newLi = document.createElement('li');
+        // newLi.innerText = lang
+        // secLang.replaceWith(newLi);
+
+        // OR
+        const secLang = document.querySelector(`li:nth-child(${index})`)
+        secLang.outerHTML = `<li>${lang}</li>`
+    }
+
+    const removeNth = (index) => {
+        document.querySelector(`li:nth-child(${index})`).remove()
+    }
+
+    addListItem('Java')
+    addItemOptimized('Python')
+    addListItem("Ruby")
+    addItemOptimized("Typescript")
+    setTimeout(() => {
+        updateNth('C++', 2)
+    }, 1000);
+    setTimeout(() => {
+        removeNth(4)
+    }, 2000)
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+
+</html>
