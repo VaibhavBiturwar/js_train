@@ -7,11 +7,37 @@
 </head>
 <body>
     <div class="parent">
-        <div class="week">Monday</div>
-        <div class="week">Tuesday</div>
-        <div class="week">Wednesday</div>
-        <div class="week">Thursday</div>
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
     </div>
     
+    <script>
+        const parent = document.querySelector('.parent');
+        // console.log(parent);
+        // console.log(parent.children);
+        // console.log(parent.children[0].innerHTML);
+
+        // for (let i = 0; i < parent.children.length; i++) {
+        //     console.log(parent.children[i].innerHTML);
+        //     parent.children[i].style.backgroundColor= "red";
+        //     parent.children[i].style.padding= "5px";
+        //     parent.children[i].style.margin= "5px";
+        //     parent.children[i].style.borderRadius= "5px";
+        // }
+
+        // console.log(parent.firstElementChild);
+        // console.log(parent.lastElementChild);
+
+        const firstDay = document.querySelector('.day')
+        // console.log(firstDay)
+        // console.log(firstDay.parentElement);
+        // console.log(firstDay.nextElementSibling);
+
+            console.log(parent.childNodes)
+
+    </script>
+
 </body>
 </html>

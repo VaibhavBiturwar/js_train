@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Create element</title>
+</head>
+
+<body style="background-color: black; color: white;">
+</body>
+
+<script>
+    const newDiv = document.createElement('div');
+    newDiv.className = "main"
+    newDiv.id = Math.floor(Math.random() * 10 + 1)
+    newDiv.setAttribute('title', "Generated Title") // more optimized
+    newDiv.style.backgroundColor = "green"
+    newDiv.style.padding = "10px"
+    const textNode = document.createTextNode("Hello World")
+    newDiv.appendChild(textNode)
+    console.log(newDiv);
+
+
+    //    Appending child to the body tag
+    //    document.querySelector('body').appendChild(newDiv);
+    //    console.log(z);
+    document.body.appendChild(newDiv);
+</script>
+
+</html>
