@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .parent {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .outerContainer {
+            height: 100px;
+            width: 100px;
+            background-color: bisque;
+
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .innerContainer {
+            height: 50px;
+            width: 50px;
+            background-color: cadetblue;
+        }
+
+        li {
+            font-size: large;
+            margin: 10px;
+        }
+    </style>
+</head>
+
+<body style="background-color: grey; color: white;">
+    <a style="font-size:larger" id="link">
+        Click here to alert user
+    </a>
+    <br>
+    <br>
+    <br>
+    <h1>Event Propagation</h1>
+
+    <div class="parent">
+        <div class="outerContainer" id="outerContainer1">
+            <div class="innerContainer" id="innerContainer1"></div>
+        </div>
+        <p>Event Propagation: false</p>
+    </div>
+
+    <div class="parent">
+        <div class="outerContainer" id="outerContainer2">
+            <div class="innerContainer" id="innerContainer2"></div>
+        </div>
+        <p>Event Propagation: false</p>
+    </div>
+
+    <div class="parent">
+        <div class="outerContainer" id="outerContainer3">
+            <div class="innerContainer" id="innerContainer3"></div>
+        </div>
+        <p>Event Propagation disabled</p>
+    </div>
+
+
+
+    <a href="https://www.google.com" id="google">Click here to go to Google</a>
+
+
+    <h1>Removable Items</h1>
+    <ul id="itemsList">
+        <li>Click To Delete : Javascript</li>
+        <li>Click To Delete : Typescript</li>
+        <li>Click To Delete : Java</li>
+        <li>Click To Delete : C</li>
+        <li>Click To Delete : C++</li>
+        <li>Click To Delete : Python</li>
+        <li>Click To Delete : MySQL</li>
+        <li>Click To Delete : NoSql</li>
+    </ul>
+
+
+
+
+
+</body>
+<script>
+    // Predefined fn
+    // document.getElementById("link").onclick = () => {
+    //     alert("Link Pressed")
+    // }
+    // Event Listener
+    document.getElementById('link').addEventListener('click', (e) => {
+        alert("Click Event")
+        console.log(e)
+    })
+
+    // EVENT PROPAGATION
+    /* 
+    addEventListener("event_name", "function_callback" , eventPropagation(default false))
+     Event Propagation (or event bubbling) 
+    By default the inner event is called and then the outer fn is called.
+    By passing true this can be inverted.
+    */
+    // Without event propagation
+    document.getElementById('outerContainer1').addEventListener('click', () => {
+        console.log("Outer Container 1 Clicked");
+    })
+    document.getElementById('innerContainer1').addEventListener('click', () => {
+        console.log("Inner Container 1 Clicked");
+    })
+
+
+    // With event propagation
+    document.getElementById('outerContainer2').addEventListener('click', () => {
+        console.log("Outer Container 2 Clicked");
+    }, true)
+    document.getElementById('innerContainer2').addEventListener('click', () => {
+        console.log("Inner Container 2 Clicked");
+    }, true)
+
+
+    // Event Propagation disabled
+    document.getElementById('outerContainer3').addEventListener('click', (e) => {
+        console.log("Outer Container 3 Clicked");
+
+    })
+    document.getElementById('innerContainer3').addEventListener('click', (e) => {
+        console.log("Inner Container 3 Clicked");
+        e.stopPropagation();
+    })
+
+    // Prevent Default
+    document.getElementById('google').addEventListener('click', (e) => {
+        console.log("Google Clicked");
+        e.preventDefault()
+    })
+
+    // Remove Items
+    document.getElementById('itemsList').addEventListener('click', (e) => {
+        console.log(e.target.tagName)
+        e.target.tagName == "LI" && e.target.remove()
+    })
+
+
+
+
+
+
+</script>
+
+
+</html>
