@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+<script>
+    const xhrApiCall = () => {
+        const url = "https://jsonplaceholder.typicode.com/todos/1"
+        const xhr = new XMLHttpRequest();
+        xhr.onreadystatechange = (res) => {
+            if (xhr.readyState == 4) {
+                console.log("Status: ", xhr.status)
+                const res = JSON.parse(xhr.response);
+                console.log("Data: ", xhr.response);
+                console.log(res.userId, res.id, res.title, res.completed)
+
+            }
+        }
+        xhr.open('GET', url);
+        xhr.send();
+    }
+
+
+    // xhrApiCall();
+
+
+
+
+
+
+
+</script>
+
+
+
+
+</html>
