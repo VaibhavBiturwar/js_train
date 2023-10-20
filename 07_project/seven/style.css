@@ -1,0 +1,53 @@
+:root{
+    --bg: #064789;
+    --primary: #427AA1;
+    --secondary: #EBF2FA;
+}
+body{
+    background-color: #2d2d2d;
+    color: var(--secondary);
+}
+button{
+    background-color: var(--primary);
+    color: var(--secondary);
+    margin: 10px;
+}
+
+
+
+.cardContainer{
+    /* min-height: 300;
+    min-width: 200;
+    max-width:max-content; */
+    width: 500px;
+    background-color: var(--bg) ;
+    padding: 20px;
+    margin: 10px 20px;
+}
+
+.listContainer{
+    padding: 10px;
+    padding-left: 20px;
+    margin: 0px;
+    background-color: var(--primary);
+    box-shadow: 3px 3px var(--secondary);
+}
+
+.details{
+    font-size: large;
+    margin: 2px;
+
+}
+
+#username{
+    padding: 3px 20px;
+    color: #064789;
+    position: relative;
+    bottom: -5px;
+    font-size: x-large;
+    box-shadow: 3px 3px black;
+    background-color: var(--secondary);
+    max-width: fit-content;
+}
+
+
